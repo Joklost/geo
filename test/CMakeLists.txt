@@ -1,3 +1,4 @@
+add_subdirectory(libs)
 
 add_executable(test_geo main.cpp test.cpp)
 
