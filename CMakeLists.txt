@@ -20,5 +20,11 @@ install(TARGETS geo EXPORT GeoLibraryConfig
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})  # This is for Windows
 install(DIRECTORY include DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
+# This makes the project importable from install directory.
+install(EXPORT GeoLibraryConfig DESTINATION cmake)
+
+# This makes the project importable from the build directory
+export(TARGETS geo FILE GeoLibraryConfig.cmake)
+
 enable_testing()
 add_subdirectory(test)
