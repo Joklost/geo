@@ -3,7 +3,7 @@ project(geo VERSION 1.0)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_library(geo src/location.cpp src/geomath.cpp)
+add_library(geo src/location.cpp src/geomath.cpp src/generator.cpp)
 
 # Define headers for this library. PUBLIC headers are used for
 # compiling the library, and will be added to consumers' build
@@ -26,5 +26,8 @@ install(EXPORT GeoLibraryConfig DESTINATION cmake)
 # This makes the project importable from the build directory
 export(TARGETS geo FILE GeoLibraryConfig.cmake)
 
+add_subdirectory(geogenerator)
+
 enable_testing()
 add_subdirectory(test)
+
