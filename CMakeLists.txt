@@ -4,6 +4,7 @@ project(geo VERSION 1.0)
 set(CMAKE_CXX_STANDARD 14)
 
 add_library(geo src/location.cpp src/geomath.cpp src/generator.cpp)
+set_property(TARGET geo PROPERTY POSITION_INDEPENDENT_CODE ON)
 
 # Define headers for this library. PUBLIC headers are used for
 # compiling the library, and will be added to consumers' build
