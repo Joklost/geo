@@ -26,6 +26,6 @@ TEST_CASE("Compute distance between two GPS coordinates after moving one 1.5 km"
     geo::Location l2{0, 57.01266813458001, 9.9929758};
 
     REQUIRE(geo::distance_between(l1, l2) == Approx(0.100).margin(0.001));
-    l2.move(10, 1.5, 270.0);
-    REQUIRE(geo::distance_between(l1, l2) == Approx(1.600).margin(0.01));
+    auto l3 = geo::move_location(l2, 1.5, 270.0);
+    REQUIRE(geo::distance_between(l1, l3) == Approx(1.600).margin(0.01));
 }

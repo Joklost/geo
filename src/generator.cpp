@@ -18,14 +18,14 @@ std::vector<std::string> grid(geo::Location &point, unsigned long len, double ga
         auto id = 1;
         for (auto i = 0; i < len; i++) {
             std::ostringstream l1{};
-            l1 << id++ << "," << std::fixed << p.get_latitude() << "," << p.get_longitude() << "," << time;
+            l1 << id++ << "," << std::fixed << p.latitude << "," << p.longitude << "," << time;
             lines.push_back(l1.str());
             p = geo::move_location(p, gap, 0);
 
             for (auto j = 1; j < len; j++) {
                 l = geo::move_location(l, gap, 90);
                 std::ostringstream l2{};
-                l2 << id++ << "," << std::fixed << l.get_latitude() << "," << l.get_longitude() << "," << time;
+                l2 << id++ << "," << std::fixed << l.latitude << "," << l.longitude << "," << time;
                 lines.push_back(l2.str());
             }
 

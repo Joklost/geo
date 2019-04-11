@@ -3,6 +3,7 @@
 
 #include <ostream>
 #include <cmath>
+#include <unordered_map>
 
 namespace geo {
 
@@ -27,25 +28,15 @@ namespace geo {
         bool operator>=(const Location &rhs) const;
 
         friend std::ostream &operator<<(std::ostream &os, const Location &location) {
-            os << "Location{latitude: " << std::fixed << location.get_latitude() << ", longitude: "
-               << std::fixed << location.get_longitude() << "}";
+            os << "Location{latitude: " << std::fixed << location.latitude << ", longitude: "
+               << std::fixed << location.longitude << "}";
             return os;
         }
 
-        void move(double time, double distance /*kilometers */, double bearing /* degrees */);
-
-        double get_latitude() const;
-
-        double get_longitude() const;
-
-        double get_time() const;
-
-        void set_time(double time);
-
-    private:
         double time{};
         double latitude{};
         double longitude{};
+        std::unordered_map<unsigned long, double> connections{};
     };
 
     Location random_location(const Location &upper_bound, const Location &lower_bound);
