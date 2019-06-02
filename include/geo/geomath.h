@@ -6,6 +6,7 @@
 #define EARTH_RADIUS_KM 6371.0
 #define KM 1000.0
 #define KM_PER_DEGREE 111.320
+#define EARTH_EQUATORIAL_CIRCUMFERENCE 40075016.686 /* meters */
 
 
 namespace geo {
